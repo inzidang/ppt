@@ -15,7 +15,7 @@ const featuresLists = [
 ]
 export default function Home(){
     return <>
-    { /* 캐러셀 */ }
+    { /* 캐러셀 정리 */ }
     <Box>
         <CarouselSlick />
     </Box>
