@@ -1,18 +1,29 @@
-import { Box, Grid, HStack, Image, LinkBox, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import CarouselSlick from "../componets/CarouselSlick";
 import CardItems from "../componets/Carditem";
-
+import {Link} from "react-router-dom"
 import TitleImageSkew from "../componets/TitleImageSkew";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
 
+// const settings = {
+//     dots: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 7,
+//     slidesToScroll: 1
+// };
+
 const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 7,
-    slidesToScroll: 1
-};
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear"
+  };
 
 const featuresLists = [
     {
@@ -73,23 +84,26 @@ export default function Home() {
             <Box
                 position="absolute"
                 w="7xl"
-                h="400px"
+                py="3"
+                px="3"
+                // h="420px"
                 top={-16}
                 bg="white"
             >
 
                 <Slider {...settings}>
-
                 {data?.data?.results?.map((item, i) => (
-                    <div key={i}>
-                        <Box w="180px" h="240px">
+                    <Link to={`/comics/${item.id}`}key={i}>
+                    <VStack w="full" h="full" role="group" corsor="pointer">
+                        <Box w="170px" h="240px" _groupHover={{transform: "scale(1.1)"}} transition={"0.4s"} >
                             <Image src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={`Comiocs ${i}`}
                                 w="full" h="full"
                                 objectFit="cover"
                             />
                         </Box>
-                        <Text>{item.title}</Text>
-                    </div>
+                        <Text transition={"0.4s"} _groupHover={{colofr: "red.500", fontWeight:"600"}} mt="2" px="2">{item.title.substr(0, 36)}</Text>
+                    </VStack>
+                    </Link>
 
                 ))}
 </Slider>

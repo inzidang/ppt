@@ -5,6 +5,7 @@ import Home from "./routes/Home";
 import Comics from "./routes/Comics";
 import Events from "./Events";
 import Characters from "./routes/Characters";
+import Detail from "./routes/Detail";
 
 
 const router = createBrowserRouter([
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
                 element: <Comics />
             },
             {
+                path: "comics/:id",
+                element: <Detail />
+            },
+            {
                 path: "events",
-                element: <Events />
+                element: <Events/>
             },
             {
                 path: "characters",
