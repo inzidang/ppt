@@ -15,9 +15,9 @@ export default function Footer(){
             xl:"1fr 1fr 1fr 1fr"
         }}>
             <GridItem bg="yello.100">
-                <box w="20">
+                <Box w="20">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/220px-Marvel_Logo.svg.png"/>
-                </box>
+                </Box>
             </GridItem>
             {/* 2번쨰 푸터*/}
             <GridItem w="full">
@@ -43,7 +43,7 @@ export default function Footer(){
                 </HStack>
             </GridItem>
             {/* 3번쨰 푸터 */}
-            <GridItem W="full">
+            <GridItem w="full">
                 <VStack spacing={6}>
                     <HStack spacing={3}>
                         <Box w="16">
